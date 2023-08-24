@@ -57,16 +57,15 @@ const MedRefillInput = () => {
       reminder_time: reminder_time,
     }
     console.log(data)
-    refillReminder(data)
-    .unwrap()
-    .then(() => {
-      dispatch(setAuth());
-      refetch()
-      toast.success('successful');
-    })
-    .catch(() => {
+    try{
+    await refillReminder(data).unwrap()
+    dispatch(setAuth());
+    refetch()
+    toast.success('successful');
+    }
+    catch(error){
       toast.error('server error');
-    });
+    };
   };
 
    if (isLoading || isFetching) {

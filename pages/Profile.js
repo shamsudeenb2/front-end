@@ -64,15 +64,15 @@ export default function Page() {
     };
     
     formData.append('jsonPart', JSON.stringify(jsonData));
-    updatePeofile({formData, id:profileS[0].id})
-    .unwrap()
-    .then((fulfilled) => {
+    try{
+      await updatePeofile({formData, id:profileS[0].id}).unwrap()  
       refetch()
       toast.success('successful');
-    })
-    .catch((reject) => {
+    }
+    catch(reject) {
       console.error(reject);
-    });
+      toast.error('server error')
+    };
   };
   return (
        <>

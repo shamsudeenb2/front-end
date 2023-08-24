@@ -105,17 +105,16 @@ const MedReminderInput = () => {
       reminder_time:reminder_time1,
       frequency:frequency
     }
-    medication(data)
-    .unwrap()
-    .then(() => {
+    try{
+      await medication(data).unwrap()
       dispatch(setAuth());
       refetch()
       toast.success('successful');
       // router.push('/pages/homePage');
-    })
-    .catch(() => {
+    }
+    catch(error){
       toast.error('server error');
-    });
+    };
   };
 
   return (

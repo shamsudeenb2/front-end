@@ -37,16 +37,15 @@ const AppointInput = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(inputValue)
-    records({desease_name, doctor_name})
-    .unwrap()
-    .then(() => {
+    try{
+     await records({desease_name, doctor_name}).unwrap()
       dispatch(setAuth());
       refetch()
       toast.success('successful');
-    })
-    .catch(() => {
+    }
+    catch(error){
       toast.error('server error');
-    });
+    };
   };
 
   return (

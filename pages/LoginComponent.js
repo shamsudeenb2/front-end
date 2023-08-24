@@ -32,17 +32,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login({ email, password })
-    .unwrap()
-    .then(() => {
-      toast.success('Logged in');
-      dispatch(setAuth());
-      refetch()
-      router.push('/pages/homePage');
-    })
-    .catch((rejected) => {
+    try{
+    await login({ email, password }).unwrap()
+    dispatch(setAuth());
+    toast.success('Logged in');
+    refetch()
+    router.push('/pages/homePage');
+    }
+    catch(rejected){
       toast.error(rejected.data.detail);
-    });
+    };
   };
   return (
     <>

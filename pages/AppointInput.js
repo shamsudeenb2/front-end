@@ -42,17 +42,16 @@ const AppointInput = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(inputValue)
-    doctor({inputValue})
-    .unwrap()
-    .then((data) => {
-      dispatch(setAuth());
-      refetch()
+    try{
+    const data = await doctor({inputValue}).unwrap()
+     dispatch(setAuth());
+     refetch()
       // dispatch(setUser(data));
       toast.success('successful');
-    })
-    .catch(() => {
-      toast.error('server error');
-    });
+    }
+    catch(error) {
+      toast.error('server error',error);
+    };
   };
 
   return (

@@ -40,15 +40,14 @@ const SignUp = () => {
     const last_name = name.split(" ")[1]
 
     e.preventDefault();
-    register({ first_name, last_name, email, password, re_password,phone_number, date_of_birth})
-			.unwrap()
-			.then(() => {
+    try{
+       await register({ first_name, last_name, email, password, re_password,phone_number, date_of_birth}).unwrap()
 				toast.success('Please check email to verify account');
 				router.push('/auth/signin');
-			})
-			.catch((rejected) => {
+			}
+			catch(rejected) {
 				toast.error(rejected.data.email[0]);
-			});
+			};
   };
   
   return (
