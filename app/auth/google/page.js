@@ -1,7 +1,7 @@
 'use client';
 
 import { useSocialAuthenticateMutation } from '@/redux/features/authApiSlice';
-import { useSocialAuth } from '@/hooks/useSocialAuth';
+import  useSocialAuth  from '@/hooks/useSocialAuth';
 import  Spinner  from '@/components/common/Spinner';
 
 export default function Page() {
