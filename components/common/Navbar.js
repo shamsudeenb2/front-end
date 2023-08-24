@@ -21,10 +21,6 @@ export default function Navbar() {
 	const [logout] = useLogoutMutation();
 	const { data: user, isLoading, isFetching } = useRetrieveUserQuery();
 	const { isAuthenticated } = useAppSelector(state => state.auth);
-
-
-	
-	
 	  
 	const handleLogout = () => {
 		console.log('logOut')

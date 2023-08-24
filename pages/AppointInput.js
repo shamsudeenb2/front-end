@@ -59,7 +59,7 @@ const AppointInput = () => {
     <form onSubmit={handleSubmit} className="m-auto"> 
     <div className="md:flex md:flex-wrap">
     <div className="md:flex md:flex-col my-2 md:mx-2">
-        <label>Doctor's Name</label>
+        <label>Doctor Name</label>
         <InputField
           type="text"
           value={name}

@@ -96,8 +96,8 @@ export default function Record() {
                     </button>
                 </div>
                 <div className="flex justify-between py-2">
-                  <p className={`font-semibold`}>Doctor's Name: {record.doctor_name}</p>
-                  <p className={`font-semibold`}>Doctor's Phone:  048857463663</p>
+                  <p className={`font-semibold`}>Doctor Name: {record.doctor_name}</p>
+                  <p className={`font-semibold`}>Doctor Phone:  048857463663</p>
                 </div>
                 
                 <div className="flex md:mt-7 justify-between">

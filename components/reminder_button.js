@@ -65,8 +65,8 @@ const ReminderButton = ({
       </div>
       
       <div className="flex md:mt-7 ">
-        <img src="/calender.png"  className="w-9 h-7 pr-2" />
-        <p className={`font-medium font-semibold text-gray-700 text-[#474646]`}>{date}</p>
+        <Image width={38} height={20} src="/calender.png"  className="pr-2" />
+        <p className={`font-medium font-semibold text-gray-700 text-[#474646] pt-2`}>{date}</p>
       </div>
     </div>
   );

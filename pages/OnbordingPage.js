@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import NabBtn from "@/components/button_image";
 import OnborBtn from "@/components/onborBtn";
 import Link from "next/link";
@@ -10,24 +11,24 @@ const OnBordingPage = () => {
     const images = [
       {
         id: 1,
-        imageUrl: "image.png",
+        imageUrl: "/image.png",
         text: "Doctor’s Appointment Reminder",
         pag: "Setting reminder for your doctor’s appointment  ",
-        bgImage: "bgImage1.png",
+        bgImage: "/bgImage1.png",
       },
       {
         id: 2,
-        imageUrl: "image2.png",
+        imageUrl: "/image2.png",
         text: "Medication Intake and Refill Reminder",
         pag: "Setting reminder for your intake of your drugs and refill of your drugs",
-        bgImage: "bgImage2.png",
+        bgImage: "/bgImage2.png",
       },
       {
         id: 3,
-        imageUrl: "image3.png",
+        imageUrl: "/image3.png",
         text: "Medical Records",
         pag: "Check and evaluate your past medical records",
-        bgImage: "bgImage3.png",
+        bgImage: "/bgImage3.png",
       },
     ];
 
@@ -54,8 +55,10 @@ const OnBordingPage = () => {
       <>
 
       <div className="md:hidden">
-        <img
-          className="slider-image w-full h-full object-cover mt-9"
+        <Image
+          width={1000}
+          height={1000}
+          className="slider-image object-cover mt-9"
           src={images[currentSlide].imageUrl}
           alt="Slider Image"
         />
@@ -67,8 +70,12 @@ const OnBordingPage = () => {
         </div>
       </div>
       <div className="hidden md:block">
-        <img
-          className="slider-image w-full  object-cover "
+        <Image
+          // fill={true}
+          // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          width={1500}
+          height={800}
+          className="slider-image  object-cover "
           src={images[currentSlide].bgImage}
           alt="Slider Image"
         />

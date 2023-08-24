@@ -1,5 +1,5 @@
 import Button from "components/button.js";
-import UploadImage from "components/upload";
+
 import Profile from "@/pages/Profile";
 
 export const metadata = {

@@ -4,7 +4,6 @@ import { useRetrieveProfileQuery, useRetrieveUserQuery, useUpdateProfileMutation
 import  List  from "@/components/common/List";
 import  Spinner  from "@/components/common/Spinner";
 import Image from "next/image";
-import UploadImage from "components/upload";
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { toast } from 'react-toastify';
