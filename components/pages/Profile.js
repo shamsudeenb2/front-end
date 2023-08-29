@@ -83,7 +83,7 @@ export default function Page() {
               <label htmlFor="upload-button">
                 {profile_img?(
                   <Image src={profile_img} alt="profile" width="90" height="50" className="w-20 h-20 bg-gray-200 border-2 border-gray-300 rounded-full" />
-                ) : profileS[0].profile_img ?(
+                ) : profileS[0].profile_img !== null ?(
                   <Image src={profileS[0].profile_img} alt="profile" width="100" height="100" className="w-30 h-21 bg-gray-200 border-2 border-gray-300 rounded-full" />
                 ):(
                   <div>
