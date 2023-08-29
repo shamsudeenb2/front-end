@@ -4,9 +4,14 @@ import React from "react";
 // import NabBtn from "@/components/button_image";
 import Link from "next/link";
 import Button from "@/components/button";
-import Doctors from "@/pages/DoctorListComponent";
+import Doctors from "@/components/pages/DoctorListComponent";
 import Plus_btn from "@/components/plus_btn";
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
 
+const DynamicDoclist = dynamic(()=> import("@/components/pages/DoctorListComponent"),{
+  loading: ()=> <><Spinner/></>
+})
 export default function Doc_appointment() {
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const handleToggleModal = () => {
@@ -67,7 +72,7 @@ export default function Doc_appointment() {
         <div className="my-5 mx-4 flex ">
           <Plus_btn to="add/" text="Add Doctor Appointment" />
         </div>
-          <Doctors/>
+          <DynamicDoclist/>
       </div>
     </div>
   );

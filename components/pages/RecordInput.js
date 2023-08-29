@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../components/button";
-import InputField from "../components/inputField";
+import Button from "../button";
+import InputField from "../inputField";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/redux/hooks';
@@ -39,7 +39,7 @@ const AppointInput = () => {
     console.log(inputValue)
     try{
      await records({desease_name, doctor_name}).unwrap()
-      dispatch(setAuth());
+      // dispatch(setAuth());
       refetch()
       toast.success('successful');
     }

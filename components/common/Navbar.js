@@ -11,7 +11,7 @@ import { logout as setLogout, setProfile } from '@/redux/features/authSlice';
 import  NavLink  from '@/components/common/NavLink';
 import  Spinner  from "@/components/common/Spinner";
 
-export default function Navbar() {
+export default function Navbar(){
 	const pathname = usePathname();
 	const dispatch = useAppDispatch();
 	const router = useRouter();
@@ -22,15 +22,20 @@ export default function Navbar() {
 	const { data: user, isLoading, isFetching } = useRetrieveUserQuery();
 	const { isAuthenticated } = useAppSelector(state => state.auth);
 	  
-	const handleLogout = () => {
+	const handleLogout = async () => {
 		console.log('logOut')
-		logout(undefined)
-			.unwrap()
-			.then(() => {
-				dispatch(setLogout());
+		try{
+		    await logout(undefined).unwrap()
+			
+			dispatch(setLogout());
 				// router.push('/auth/signin')
-			});
+			}catch(error){
+				console.error(error)
+			};
 	};
+	useEffect(() => {
+		// You can place other code here that runs on page load
+	  }, []);
 
 	const isSelected =(path)=> (pathname === path ? true : false);
 
@@ -102,8 +107,6 @@ export default function Navbar() {
 			</NavLink>
 		</>
 	);
-
-	console.log(error)
 	return (
 		<Disclosure as='nav' className='bg-gray-800'>
 			{({ open }) => (
@@ -118,7 +121,7 @@ export default function Navbar() {
 									{open ? (
                                         <div> X </div>
 									) : (
-                                        <img src="/hamburger.png" className="w-7 h-7 rounded pr-0" />
+                                        <Image src="/hamburger.png" width={20} height={20} alt="burger" className="w-7 h-7 rounded pr-0" />
 									)}
 								</Disclosure.Button>
 							</div>

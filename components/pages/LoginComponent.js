@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import Button from "../components/button";
+import React, { useState,useEffect } from "react";
+import Button from "../button";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/redux/hooks';
@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import  continueWithGoogle from '@/utils/continueWithSocialAuth';
 import  Spinner  from '@/components/common/Spinner';
 
-const Login = () => {
+export default function Login(){
   const router = useRouter();
 	const dispatch = useAppDispatch();
 	const [login, { isLoading }] = useLoginMutation();
@@ -43,6 +43,9 @@ const Login = () => {
       toast.error(rejected.data.detail);
     };
   };
+  useEffect(() => {
+    // You can place other code here that runs on page load
+  }, []);
   return (
     <>
         <form onSubmit={handleSubmit}>
@@ -95,7 +98,7 @@ const Login = () => {
             text="Sign in with Google"
             color="#fff"
             textColor="#000"
-            image="../google_icon.png"
+            image="/google_icon.png"
             onClick={continueWithGoogle}
                     />
         </form>
@@ -103,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+// export default Login;

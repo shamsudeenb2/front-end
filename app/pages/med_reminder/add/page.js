@@ -1,7 +1,13 @@
 import React from "react";
-import MedReminderInput from "@/pages/MedReminder";
+import MedReminderInput from "@/components/pages/MedReminder";
 import HamburgerMain from "@/components/hamburgerMain";
 import Link from "next/link"
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicMedInput = dynamic(()=> import("@/components/pages/MedReminder"),{
+  loading: ()=> <><Spinner/></>
+})
 
 const MedReminder = () => {
   return (
@@ -18,7 +24,7 @@ const MedReminder = () => {
       <h1 className="text-center font-extrabold text-lg">Med Intake Reminder</h1>
       {/* className="bg-[#F8F8F8] shadow-lg shadow-gray-500/50  flex flex-col justify-center rounded-3xl p-4 font-medium mx-auto" */}
       <div className="my-5 mx-4 flex flex-col items-center justify-center">
-        <MedReminderInput />
+        <DynamicMedInput />
       </div>
     </div>
   );

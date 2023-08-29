@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../components/button";
-import InputField from "../components/inputField";
+import Button from "../button";
+import InputField from "../inputField";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/redux/hooks';
@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import  Spinner  from '@/components/common/Spinner'
 // import Home from "../app/page";
 
-const AppointInput = () => {
+export default function AppointInput(){
   const router = useRouter();
 	const dispatch = useAppDispatch();
 	const [doctor, { isLoading }] = useDoctorMutation();
@@ -44,7 +44,7 @@ const AppointInput = () => {
     console.log(inputValue)
     try{
     const data = await doctor({inputValue}).unwrap()
-     dispatch(setAuth());
+    //  dispatch(setAuth());
      refetch()
       // dispatch(setUser(data));
       toast.success('successful');
@@ -116,4 +116,4 @@ const AppointInput = () => {
   );
 };
 
-export default AppointInput;
+

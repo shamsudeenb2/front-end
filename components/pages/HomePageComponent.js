@@ -11,12 +11,13 @@ import DeleteItem from "@/components/DeleteComponent";
 // import { setUser, setError } from '@/redux/features/authSlice';
 // // import { useEffect } from 'react';
 // import { fetchDataFromEndpoints } from '@/redux/features/fetchUser'
+import { useRouter } from "next/dist/client/router";
 import { useRetrieveHomeViewQuery,useRetrieveDoctorQuery,useRetrieveRefillQuery, useRetrieveMedicationQuery,  } from '@/redux/features/authApiSlice';
 
 
 
 
-export default function Home() {
+export default function Home(){
   const {data: doctors, isLoading: loadingA, isFetching:fetchingA} = useRetrieveDoctorQuery();
   const {data: refills, isLoading: loadingR, isFetching: fetchingR} = useRetrieveRefillQuery();
   const {data: medication, isLoading: loadingM, isFetching: fetchingM} = useRetrieveMedicationQuery();

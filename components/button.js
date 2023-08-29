@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 
 const Button = ({ color, text, textColor, image, className,width, type, onClick}) => {
   return (
@@ -10,7 +10,7 @@ const Button = ({ color, text, textColor, image, className,width, type, onClick}
         style={{ backgroundColor: color, color: textColor,width: width }}
 
       >
-        {image && <img src={image} alt="Image" className="h-5 pr-4" />}
+        {image && <Image  src={image} width={50} height={50} alt="Image" className="h-5 pr-4" />}
         <p className={`text-extrabold ${className}`}> {text}</p>
       </button>
   );

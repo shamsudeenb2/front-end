@@ -1,11 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Button from "@/components/button";
-import RefillComponent from "@/pages/MedRefillListComponent";
+import RefillComponent from "@/components/pages/MedRefillListComponent";
 import Plus_btn from "@/components/plus_btn";
 import BottomImg from "@/components/svg_image";
 import Navigation from "@/components/hamburgerMain";
 import MenuBar from "@/components/menuBar";
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicRefilList = dynamic(()=> import("@/components/pages/MedRefillListComponent"),{
+  loading: ()=> <><Spinner/></>
+})
 
 export default function MedRefill() {
   return (
@@ -17,7 +23,7 @@ export default function MedRefill() {
         <div className="my-5 mx-4 flex ">
           <Plus_btn to="add/" text="Med Refill Reminder" />
         </div>
-          <RefillComponent/>
+          <DynamicRefilList/>
       </div>
     </div>
   );

@@ -1,16 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// interface AuthState {
-// 	isAuthenticated: boolean;
-// 	isLoading: boolean;
-// }
+
 
 const initialState = {
 	isAuthenticated: false,
 	isLoading: true,
-	user:null,
+	user:'',
 	profile:{},
-	error:null
+	error:''
  } 
 
 const authSlice = createSlice({
@@ -32,6 +29,7 @@ const authSlice = createSlice({
 		setError: (state,action)=>{
 			state.error= action.payload
 		},
+
 		finishInitialLoad: state => {
 			state.isLoading = false;
 		},

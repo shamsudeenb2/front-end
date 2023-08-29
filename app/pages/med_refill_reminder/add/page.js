@@ -4,8 +4,14 @@ import React from "react";
 // import MenuBar from "@/components/menuBar";
 // import MedRefillReminderInput from "@/components/med_refill_reminder";
 // import HamburgerMain from "@/components/hamburgerMain";
-import MedRefillInput from "@/pages/MedRefillInput"
+import MedRefillInput from "@/components/pages/MedRefillInput"
 import Link from "next/link";
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicRefilInput = dynamic(()=> import("@/components/pages/MedRefillInput"),{
+  loading: ()=> <><Spinner/></>
+})
 
 const MedReminder = () => {
   return (
@@ -19,7 +25,7 @@ const MedReminder = () => {
       </Link>
       <h1 className=" text-center font-extrabold text-lg">Reminder</h1>
       <div className="my-5 mx-4 flex flex-col items-center justify-center">
-        <MedRefillInput />
+        <DynamicRefilInput />
       </div>
   </div>
   );

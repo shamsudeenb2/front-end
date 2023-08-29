@@ -4,7 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import Plus_btn from "@/components/plus_btn";
 import BottomImg from "@/components/svg_image"
-import Record from "@/pages/RecordListComponent"
+import Record from "@/components/pages/RecordListComponent"
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicRecList = dynamic(()=> import("@/components/pages/RecordListComponent"),{
+  loading: ()=> <><Spinner/></>
+})
 
 const ListReminder = () => {
   
@@ -17,7 +23,7 @@ const ListReminder = () => {
       <div className="my-5 mx-4 flex">
         <Plus_btn to="add/" text="Add Med Intake Reminder" />
       </div>
-          <Record/>
+          <DynamicRecList/>
       </div>
     </div>
   );

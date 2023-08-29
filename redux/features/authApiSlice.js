@@ -227,6 +227,9 @@ export const {
 	useRetrieveRecordQuery,
 	useEditRecordMutation,
 	useRecordMutation,
-	useDeleteRecordMutation
+	useDeleteRecordMutation,
 
+	util: { getRunningQueriesThunk },
 } = authApiSlice;
+
+export const { retrieveRecord, retrieveRefill } = authApiSlice.endpoints;

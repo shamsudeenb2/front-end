@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+// import { createWrapper, Context } from "next-redux-wrapper";
 import { apiSlice } from './services/apiSlice';
 import authReducer from './features/authSlice';
 
@@ -8,8 +9,10 @@ export const store = configureStore({
 		[apiSlice.reducerPath]: apiSlice.reducer,
 		auth: authReducer,
 	},
-	middleware: getDefaultMiddleware =>
+	
+	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(apiSlice.middleware),
 	devTools: process.env.NODE_ENV !== 'production',
 });
-  
+
+// export const wrapper = createWrapper(store, { debug: true });

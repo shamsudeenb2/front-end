@@ -1,5 +1,5 @@
 import React from "react";
-import AppointInput from "@/pages/AppointInput";
+import AppointInput from "@/components/pages/AppointInput";
 import Link from "next/link";
 import Image from "next/image";
 import ReminderButton from "./reminder_button";

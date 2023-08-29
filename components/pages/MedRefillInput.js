@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../components/button";
-import InputField from "../components/inputField";
+import Button from "../button";
+import InputField from "../inputField";
 import Link from "next/link";
 import Plus_btn from "@/components/plus_btn";
 import { useRouter } from 'next/navigation';
@@ -59,7 +59,7 @@ const MedRefillInput = () => {
     console.log(data)
     try{
     await refillReminder(data).unwrap()
-    dispatch(setAuth());
+    // dispatch(setAuth());
     refetch()
     toast.success('successful');
     }

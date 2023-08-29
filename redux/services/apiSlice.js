@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {HYDRATE} from 'next-redux-wrapper'
 import {
 	BaseQueryFn,
 	FetchArgs,
@@ -10,10 +11,15 @@ import { Mutex } from 'async-mutex';
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
 	baseUrl: `${process.env.NEXT_PUBLIC_HOST}/`,
+	extractRehydrationInfo(action, { reducerPath }) {
+		if (action.type === HYDRATE) {
+		  return action.payload[reducerPath]
+		}
+	},
 	credentials: 'include',
 });
 
-const baseQueryWithReauth  = async (args, api, extraOptions) => {
+const baseQueryWithReauth = async (args, api, extraOptions) => {
 	await mutex.waitForUnlock();
 	let result = await baseQuery(args, api, extraOptions);
 

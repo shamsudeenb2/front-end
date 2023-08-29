@@ -1,7 +1,13 @@
 import React from "react";
-import AppointInput from "@/pages/AppointInput";
+import AppointInput from "@/components/pages/AppointInput";
 import Link from "next/link";
 import Image from 'next/image'
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicDocInput = dynamic(()=> import("@/components/pages/AppointInput"),{
+  loading: ()=> <><Spinner/></>
+})
 
 const AddAppointment = () => {
   return (
@@ -15,7 +21,7 @@ const AddAppointment = () => {
         </Link>
         <h1 className=" text-center font-extrabold text-lg">Doctor Appointments</h1>
         <div className="my-5 mx-4 flex flex-col items-center justify-center">
-          <AppointInput />
+          <DynamicDocInput />
         </div>
       </div>
     </div>

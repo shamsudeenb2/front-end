@@ -1,5 +1,5 @@
 import React from "react";
-import Medication from "@/pages/MedReminderListComponent";
+import Medication from "@/components/pages/MedReminderListComponent";
 import Link from "next/link";
 import Image from "next/image";
 import Plus_btn from "@/components/plus_btn";
@@ -7,6 +7,12 @@ import HamburgerMain from "@/components/hamburgerMain";
 import BottomImg from "@/components/svg_image";
 import Navigation from "@/components/hamburgerMain";
 import MenuBar from "@/components/menuBar";
+import Spinner from "@/components/common/Spinner";
+import dynamic from "next/dynamic";
+
+const DynamicMedList = dynamic(()=> import("@/components/pages/MedReminderListComponent"),{
+  loading: ()=> <><Spinner/></>
+})
 
 const ListReminder = () => {
   return (
@@ -18,7 +24,7 @@ const ListReminder = () => {
         <div className="my-5 mx-4 flex ">
           <Plus_btn to="add/" text="Add Med Intake Reminder" />
         </div>
-          <Medication/>
+          <DynamicMedList/>
       </div>
     </div>
   );
