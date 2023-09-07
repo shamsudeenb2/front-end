@@ -17,6 +17,7 @@ export default function Page({ params }) {
 			.unwrap()
 			.then(() => {
 				toast.success('Account activated');
+				router.push('/auth/signin')
 			})
 			.catch((error) => {
 				toast.error(error.data.detail);
