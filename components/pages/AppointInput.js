@@ -19,7 +19,7 @@ export default function AppointInput(){
   const [inputValue, setInputValue] = useState({
     name: "",
     doctor_email : "",
-    doctor_phone: "",
+    doctor_phone: "+234 ",
     reminder_date:"",
     reminder_time:""
   });
@@ -57,7 +57,7 @@ export default function AppointInput(){
   return (
     <form onSubmit={handleSubmit} className="m-auto"> 
     <div className="md:flex md:flex-wrap">
-    <div className="md:flex md:flex-col my-2 md:mx-2">
+     <div className="md:flex md:flex-col my-2 md:mx-2">
         <label>Doctor Name</label>
         <InputField
           type="text"

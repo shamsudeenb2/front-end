@@ -84,9 +84,9 @@ const authApiSlice = apiSlice.injectEndpoints({
 				body: { uid, token, new_password, re_new_password },
 			}),
 		}),
-		retrieveHomeView: builder.query({
-			query: () => '/medication/home/',
-		}),
+		// retrieveHomeView: builder.query({
+		// 	query: () => '/medication/home/',
+		// }),
 		retrieveAllMedics: builder.query({
 			query: () => '/medication/all/',
 		}),
@@ -207,7 +207,7 @@ export const {
 	useActivationMutation,
 	useResetPasswordMutation,
 	useResetPasswordConfirmMutation,
-	useRetrieveHomeViewQuery,
+	// useRetrieveHomeViewQuery,
 	useRetrieveAllMedicsQuery,
 	useRetrieveMedicationQuery,
 	useEditMedicationMutation,

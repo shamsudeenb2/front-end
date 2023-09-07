@@ -142,11 +142,15 @@ export default function Navbar(){
 											  <p className="ml-0">{`${user?.first_name} ${user?.last_name}`|| <Spinner sm />}</p>
 											</>
 										):
-										(
+										(  
+											<>
 											<div
 											htmlFor="imageUpload"
 											className="w-10 h-10 bg-gray-200 border-2 border-gray-300 rounded-full"
 										></div>
+										    <p className="ml-0">{`${user?.first_name} ${user?.last_name}`|| <Spinner sm />}</p>
+										  </>
+
 										):
 										(
 											<Image

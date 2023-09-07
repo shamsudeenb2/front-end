@@ -9,7 +9,7 @@ export const metadata = {
 
 const SignupPage = () => {
   return (
-    <div className=" h-screen">
+    <div className="max-w-2xl min-h-screen md:rounded md:overflow-hidden md:shadow-lg  inset-0 m-auto flex flex-col mt-5">
       <div className="relative h-full">
         <div
           className="absolute inset-0 bg-cover"
@@ -18,9 +18,9 @@ const SignupPage = () => {
             zIndex: -1,
           }}
         ></div>
-        <div className="absolute inset-0 m-auto flex flex-col my-5">
+        
           <h1 className="text-center font-extrabold text-lg">Create Account</h1>
-          <div className="my-5 m-auto flex flex-col">
+          <div className="my-5 mx-4 flex flex-col items-center justify-center">
              <SignUp />
              <p className='mt-2 text-center text-sm text-gray-500'>
 					        Already have an account?{' '}
@@ -42,7 +42,6 @@ const SignupPage = () => {
               />
             </div> */}
           </div>
-        </div>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ import DeleteItem from "@/components/DeleteComponent";
 // // import { useEffect } from 'react';
 // import { fetchDataFromEndpoints } from '@/redux/features/fetchUser'
 import { useRouter } from "next/dist/client/router";
-import { useRetrieveHomeViewQuery,useRetrieveDoctorQuery,useRetrieveRefillQuery, useRetrieveMedicationQuery,  } from '@/redux/features/authApiSlice';
+import {useRetrieveDoctorQuery,useRetrieveRefillQuery, useRetrieveMedicationQuery } from '@/redux/features/authApiSlice';
 
 
 
@@ -23,17 +23,16 @@ export default function Home(){
   const {data: medication, isLoading: loadingM, isFetching: fetchingM} = useRetrieveMedicationQuery();
   // const { concatenatedData, isLoading, error } = useAppSelector((state) => state.data);
     // const dispatch = useAppDispatch();
-    const {data: homes, isLoading, isFetching} = useRetrieveHomeViewQuery();
     // const {data: user, isSuccess} = useRetrieveUserQuery();
     const [showModal, setShowModal] = useState(false);
    
-    if (isLoading || isFetching) {
-      return (
-        <div className='flex justify-center my-8'>
-          <Spinner lg />
-        </div>
-      );
-    }
+    // if (isLoading || isFetching) {
+    //   return (
+    //     <div className='flex justify-center my-8'>
+    //       <Spinner lg />
+    //     </div>
+    //   );
+    // }
 
 
 
